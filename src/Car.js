@@ -6,15 +6,22 @@
 	},
 
 	increaseSpeed : function(){
+	    this.changeSpeedBy(+1);
+	},
+
+	changeSpeedBy : function(delta){
 	    var last_speed = this.get("current_speed");
-	    var maximum_speed = this.get("maximum_speed");
-	    this.set({ "current_speed" : Math.min(last_speed + 1, maximum_speed) });
+	    this.setSpeedTo(last_speed + delta);
+	},
+
+	setSpeedTo : function(target){
+	    var minimum = 0;
+	    var maximum = this.get("maximum_speed");
+	    this.set({ "current_speed" : Math.min(Math.max(target, minimum), maximum) })
 	},
 	
 	decreaseSpeed : function(){
-	    var last_speed = this.get("current_speed");
-	    var minimum_speed = 0;
-	    this.set({ "current_speed" : Math.max(last_speed - 1, 0) });
+	    this.changeSpeedBy(-1);
 	}
     });
 

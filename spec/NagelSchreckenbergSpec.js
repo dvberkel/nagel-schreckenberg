@@ -32,7 +32,7 @@ describe("Car Model", function(){
 	});
     
     	it("should go from 4 to 5", function(){
-	    car.set({ "current_speed" : 4 });
+	    car.setSpeedTo(4);
 
 	    car.increaseSpeed();
 	    
@@ -52,7 +52,7 @@ describe("Car Model", function(){
     describe("speed decrease", function(){
     	it("should go from 5 to 4", function(){
 	    var maximum = car.get("maximum_speed");
-	    car.set({ "current_speed" : maximum });
+	    car.setSpeedTo(maximum);
 
 	    car.decreaseSpeed();
 	    
@@ -60,7 +60,7 @@ describe("Car Model", function(){
 	});
     
     	it("should go from 1 to 0", function(){
-	    car.set({ "current_speed" : 1 });
+	    car.setSpeedTo(1);
 
 	    car.decreaseSpeed();
 	    
@@ -68,7 +68,7 @@ describe("Car Model", function(){
 	});
     	
 	it("should not go below 0", function(){
-	    car.set({ "current_speed" : 0 });
+	    car.setSpeedTo(0);
 
 	    car.decreaseSpeed();
 	    
