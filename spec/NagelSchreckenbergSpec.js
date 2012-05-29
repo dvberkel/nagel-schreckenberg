@@ -48,4 +48,31 @@ describe("Car Model", function(){
 	    expect(car).toBeGoing(maximum);
 	});    
     });
+
+    describe("speed decrease", function(){
+    	it("should go from 5 to 4", function(){
+	    var maximum = car.get("maximum_speed");
+	    car.set({ "current_speed" : maximum });
+
+	    car.decreaseSpeed();
+	    
+	    expect(car).toBeGoing(maximum - 1);
+	});
+    
+    	it("should go from 1 to 0", function(){
+	    car.set({ "current_speed" : 1 });
+
+	    car.decreaseSpeed();
+	    
+	    expect(car).toBeGoing(0);
+	});
+    	
+	it("should not go below 0", function(){
+	    car.set({ "current_speed" : 0 });
+
+	    car.decreaseSpeed();
+	    
+	    expect(car).toBeGoing(0);
+	});    
+    });
 });
