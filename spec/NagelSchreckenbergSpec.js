@@ -2,12 +2,12 @@ describe("Car Model", function(){
     var car;
 
     beforeEach(function(){
-	car = new Car();
+	car = new SumOfUs.Car();
     });
     
     it("should be able to be instantiated", function(){
 	var instantiate = function(){
-	    new Car();
+	    new SumOfUs.Car();
 	};
 	expect(instantiate).not.toThrow();
     });

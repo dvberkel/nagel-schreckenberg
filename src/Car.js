@@ -1,4 +1,6 @@
-(function(_, Backbone, undefined){
+(function(_, Backbone, SumOfUs, undefined){
+    var SumOfUs = SumOfUs || {};
+
     var CarModel = Backbone.Model.extend({
 	defaults : {
 	    "maximum_speed" : 5,
@@ -24,6 +26,7 @@
 	    this.changeSpeedBy(-1);
 	}
     });
-
-    window.Car = CarModel;
-})(_, Backbone);
+    
+    SumOfUs.Car = CarModel;
+    return SumOfUs;
+})(_, Backbone, SumOfUs);
